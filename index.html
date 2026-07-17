@@ -258,7 +258,6 @@
       <path d="M0.5 7.4a16.5 16.5 0 0 1 23 0" stroke="#4C8DFF" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.45"/>
     </svg>
   </div>
-  <a class="login-link" id="openLogin" href="https://formspree.io/login" target="_blank" rel="noopener">View applications</a>
 </header>
 
 <section class="hero">
@@ -306,7 +305,7 @@
         </div>
         <div class="field">
           <label for="city">Home town *</label>
-          <input type="text" id="city" name="homeTown" required>
+          <input type="text" id="city" name="hometown" required>
         </div>
         <div class="field">
           <label for="resumeInput">Resume (PDF) *</label>
@@ -416,7 +415,7 @@ $('appForm').addEventListener('submit', async (e) => {
     formData.append('name', fullName);
     formData.append('email', email);
     formData.append('phone', phone);
-    formData.append('homeTown', city);
+    formData.append('hometown', city);
     formData.append('notes', notes);
     formData.append('manager_id', MANAGER_ID);
     formData.append('resume', resumeFile); // real file attachment
