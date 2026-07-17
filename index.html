@@ -405,30 +405,34 @@ $('appForm').addEventListener('submit', async (e) => {
   $('submitBtn').disabled = true;
   $('submitBtn').textContent = 'Sending…';
 
+  // Field manager app endpoint — direct integration, no third-party form relay needed.
+  const FIELD_MANAGER_ENDPOINT = 'https://opfvfrfpzgzshnbsdlxz.supabase.co/functions/v1/dynamic-service';
+  const SUPABASE_API_KEY = 'sb_publishable_QZiI02bl8Og81yKIT-BGKg_1wllb4HP';
+  const SUBMIT_SECRET = 'UNWIRED291610HDKI';
+  const MANAGER_ID = 'c20a35d9-ea76-4b2b-a508-581b0e78a0a1';
+
   try{
     const formData = new FormData();
-    formData.append('fullName', fullName);
+    formData.append('name', fullName);
     formData.append('email', email);
     formData.append('phone', phone);
     formData.append('homeTown', city);
     formData.append('notes', notes);
+    formData.append('manager_id', MANAGER_ID);
     formData.append('resume', resumeFile); // real file attachment
-    formData.append('_subject', 'New field rep application — ' + fullName);
 
-    const res = await fetch('https://formspree.io/f/mbdnglgv', {
+    const res = await fetch(FIELD_MANAGER_ENDPOINT, {
       method: 'POST',
-      headers: { 'Accept': 'application/json' },
+      headers: {
+        'apikey': SUPABASE_API_KEY,
+        'x-api-key': SUBMIT_SECRET
+      },
       body: formData
     });
 
+    const result = await res.json().catch(() => ({}));
     if(!res.ok){
-      let detail = 'HTTP ' + res.status;
-      try{
-        const data = await res.json();
-        if(data && data.errors && data.errors.length) detail = data.errors.map(er => er.message).join(', ');
-        else if(data && data.error) detail = data.error;
-      }catch(parseErr){ /* not JSON */ }
-      throw new Error(detail);
+      throw new Error(result.error || ('HTTP ' + res.status));
     }
 
     $('formWrap').style.display = 'none';
