@@ -4,277 +4,251 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#14171C">
+<meta name="theme-color" content="#17181A">
 <title>Join the Crew — Field Rep Application</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#14171C;
-    --surface:#1D222A;
-    --ink:#F2F5F8;
-    --ink-soft:#B7C1D1;
-    --line:#2C323C;
-    --accent:#4C8DFF;
-    --accent-2:#8FD3FF;
-    --radius:14px;
+    --bg:#17181A;
+    --surface:#202224;
+    --surface-2:#26282A;
+    --ink:#F5F3EE;
+    --ink-soft:#9C9589;
+    --line:#38352F;
+    --accent:#FF5B1F;
+    --accent-ink:#1A1000;
+    --accent-2:#D4FF3D;
+    --error:#FF5A4E;
+    --radius:10px;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;color-scheme:dark !important;background:#14171C !important;background-color:#14171C !important;}
+  html{scroll-behavior:smooth;color-scheme:dark !important;background:var(--bg) !important;}
   body{
     margin:0;
-    background:#14171C !important;
-    background-color:#14171C !important;
+    background:var(--bg) !important;
     color:var(--ink) !important;
-    font-family:'Inter',sans-serif;
+    font-family:'Work Sans',sans-serif;
     -webkit-font-smoothing:antialiased;
     min-height:100vh;
   }
-  h1,h2,h3{font-family:'Space Grotesk',sans-serif;margin:0;letter-spacing:-0.01em;}
-  .mono{font-family:'JetBrains Mono',monospace;}
-  .eyebrow{
-    font-family:'JetBrains Mono',monospace;
-    font-size:12px;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--accent);
-    display:flex;align-items:center;gap:8px;
-  }
-  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 0 3px rgba(143,211,255,0.18), 0 0 8px rgba(143,211,255,0.5);}
+  h1,h2,h3{font-family:'Anton',sans-serif;margin:0;font-weight:400;text-transform:uppercase;letter-spacing:0.01em;}
   a{color:inherit;}
+  .wrap{max-width:1100px;margin:0 auto;padding-left:6vw;padding-right:6vw;}
 
   /* header */
   header{
     display:flex;justify-content:space-between;align-items:center;
-    padding:22px 6vw;
-    max-width:1200px;margin:0 auto;
+    padding:20px 6vw;
+    max-width:1100px;margin:0 auto;
   }
-  .brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;display:flex;align-items:center;gap:10px;}
-  .wifi-logo{display:block;filter:drop-shadow(0 0 5px rgba(76,141,255,0.85)) drop-shadow(0 0 12px rgba(143,211,255,0.55));animation:wifiPulse 3.6s ease-in-out infinite;}
-  @keyframes wifiPulse{
-    0%,100%{filter:drop-shadow(0 0 5px rgba(76,141,255,0.85)) drop-shadow(0 0 12px rgba(143,211,255,0.55));}
-    50%{filter:drop-shadow(0 0 8px rgba(76,141,255,1)) drop-shadow(0 0 18px rgba(143,211,255,0.75));}
+  .brand{font-weight:700;font-size:17px;display:flex;align-items:center;gap:10px;}
+  .brand-badge{
+    width:34px;height:34px;border-radius:8px;background:var(--accent);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
   }
-  @media (prefers-reduced-motion: reduce){.wifi-logo{animation:none;}}
-  .login-link{font-size:13px;color:var(--ink-soft);text-decoration:none;border:1px solid var(--line);padding:8px 14px;border-radius:100px;background:var(--surface);cursor:pointer;transition:border-color .15s ease, color .15s ease, box-shadow .15s ease;}
-  .login-link:hover{border-color:var(--accent);color:var(--accent-2);box-shadow:0 0 16px rgba(76,141,255,0.35);}
+  .apply-link{
+    font-size:13px;font-weight:700;color:var(--bg);text-decoration:none;
+    background:var(--accent-2);padding:9px 18px;border-radius:100px;letter-spacing:0.01em;
+  }
 
   /* hero */
-  .hero{max-width:1200px;margin:0 auto;padding:60px 6vw 40px;position:relative;}
+  .hero{max-width:1100px;margin:0 auto;padding:36px 6vw 64px;position:relative;}
+  .hero-solo{max-width:680px;}
 
-  /* full-page background bundle */
-  .bg-fiber{
-    position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;opacity:0.5;
+  .hero-headline{
+    font-size:clamp(36px,6vw,64px);line-height:0.98;letter-spacing:0.005em;
   }
-  .bg-fiber svg{width:100%;height:100%;display:block;}
-  .bgspark{animation:bgtwinkle ease-in-out infinite;}
-  @keyframes bgtwinkle{0%,100%{opacity:.35;}50%{opacity:1;}}
-  @media (prefers-reduced-motion: reduce){.bgspark{animation:none;opacity:.7;}}
-  .page{position:relative;z-index:1;}
-  .hero h1{font-size:clamp(34px,5.5vw,58px);line-height:1.05;max-width:14ch;margin-top:18px;}
-  .hero p{color:var(--ink-soft);font-size:17px;max-width:46ch;margin-top:18px;line-height:1.6;}
-  .cta-row{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
+  .hero-headline .accent{color:var(--accent);}
+  .hero-sub{
+    margin-top:22px;color:var(--ink-soft);font-size:17px;max-width:46ch;line-height:1.55;
+  }
+  .cta-row{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
   .btn{
-    font-family:'Inter',sans-serif;font-weight:600;font-size:15px;
-    padding:14px 26px;border-radius:100px;border:none;cursor:pointer;
-    background:linear-gradient(135deg,var(--accent),#3B6FE0);color:#fff;
-    box-shadow:0 0 0 rgba(76,141,255,0);
-    transition:transform .15s ease, box-shadow .2s ease;
+    font-family:'Work Sans',sans-serif;font-weight:700;font-size:15px;
+    padding:16px 30px;border-radius:100px;border:none;cursor:pointer;
+    background:var(--accent);color:#fff;
+    text-transform:uppercase;letter-spacing:0.02em;
+    transition:transform .12s ease, box-shadow .2s ease;
   }
-  .btn:hover{transform:translateY(-1px);box-shadow:0 0 24px rgba(76,141,255,0.55), 0 8px 20px rgba(0,0,0,0.35);}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(255,91,31,0.35);}
+  .btn:active{transform:translateY(0px);}
   .btn:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, .dropzone:focus-visible{
     outline:2px solid var(--accent-2); outline-offset:2px;
   }
-  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line);}
+  .btn-full{width:100%;}
+  .hero-tag{font-size:13px;color:var(--ink-soft);font-weight:600;}
 
-  /* signal line — signature element */
-  .signal{
-    position:relative;height:2px;background:var(--line);margin:44px 0 0;overflow:hidden;border-radius:2px;
+  /* video card */
+  .video-card{
+    position:relative;max-width:340px;margin:0 auto;border-radius:16px;overflow:hidden;
+    border:3px solid var(--accent);
+    transform:rotate(-2.2deg);
+    box-shadow:14px 16px 0 rgba(0,0,0,0.35);
+    background:#000;
   }
-  .signal::before{
-    content:'';position:absolute;top:50%;left:-40px;width:40px;height:40px;transform:translateY(-50%);
-    background:radial-gradient(circle,rgba(76,141,255,0.45),transparent 70%);
-    animation:pulse 3.2s linear infinite;
+  .video-card video{width:100%;aspect-ratio:9/16;display:block;object-fit:cover;background:#0a0a0a;}
+  .video-play{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:62px;height:62px;border-radius:50%;border:3px solid var(--bg);cursor:pointer;
+    background:var(--accent-2);
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .15s ease;
   }
-  .signal::after{
-    content:'';position:absolute;top:50%;left:-4px;width:8px;height:8px;border-radius:50%;transform:translateY(-50%);
-    background:var(--accent-2);box-shadow:0 0 16px 3px rgba(143,211,255,0.7);
-    animation:pulse 3.2s linear infinite;
+  .video-play:hover{transform:translate(-50%,-50%) scale(1.06);}
+  .video-play.hidden{display:none;}
+  .video-bar{
+    position:absolute;left:0;right:0;bottom:0;padding:10px 14px;
+    display:flex;align-items:center;gap:10px;
+    background:linear-gradient(to top, rgba(0,0,0,0.8), transparent);
   }
-  @keyframes pulse{ 0%{left:-4px;} 100%{left:100%;} }
-  @media (prefers-reduced-motion: reduce){
-    .signal::before,.signal::after{animation:none;display:none;}
+  .video-time{color:#fff;font-size:12px;min-width:32px;font-weight:600;}
+  .video-track{flex:1;height:4px;background:rgba(255,255,255,0.25);border-radius:3px;overflow:hidden;}
+  .video-progress{height:100%;width:0%;background:var(--accent-2);}
+
+  /* statement strip */
+  .statement{
+    background:var(--accent);padding:48px 6vw;
+  }
+  .statement p{
+    max-width:1100px;margin:0 auto;color:var(--accent-ink);
+    font-family:'Anton',sans-serif;text-transform:uppercase;
+    font-size:clamp(22px,3.4vw,34px);line-height:1.15;
   }
 
   /* steps */
-  .steps{max-width:1200px;margin:0 auto;padding:70px 6vw;}
-  .steps-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:36px;}
-  .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative;}
+  .steps{max-width:1100px;margin:0 auto;padding:64px 6vw;}
+  .steps h2{font-size:clamp(26px,3.4vw,36px);margin-bottom:34px;}
+  .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;}
   .step{
-    padding:22px 20px 24px;position:relative;border-radius:12px;
-    border:1px solid rgba(76,141,255,0.5);
-    background:rgba(8,10,14,0.6);
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
-    box-shadow:0 16px 34px rgba(0,0,0,0.5), 0 0 0 1px rgba(76,141,255,0.06) inset;
+    padding:22px 20px 24px;position:relative;
+    border-left:4px solid var(--accent);
+    background:var(--surface);
   }
   .step .num{
-    font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);
-    position:relative;z-index:1;
+    font-family:'Anton',sans-serif;font-size:32px;color:var(--accent);line-height:1;
   }
-  .step h3{font-size:17px;margin-top:14px;}
+  .step h3{font-size:18px;margin-top:12px;font-weight:400;}
   .step p{color:var(--ink-soft);font-size:14px;line-height:1.55;margin-top:8px;}
   @media (max-width:820px){
-    .steps-grid{grid-template-columns:1fr;gap:16px;}
+    .steps-grid{grid-template-columns:1fr;gap:3px;}
   }
 
   /* form */
-  .form-section{max-width:1200px;margin:0 auto;padding:20px 6vw 100px;}
+  .form-section{max-width:1100px;margin:0 auto;padding:10px 6vw 100px;}
   .form-card{
     background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-    padding:44px;max-width:640px;margin:0 auto;
+    padding:40px;max-width:600px;margin:0 auto;
   }
-  .form-card h2{font-size:26px;}
-  .form-card > p{color:var(--ink-soft);font-size:14px;margin-top:8px;}
+  .form-card h2{font-size:30px;}
+  .form-card > p{color:var(--ink-soft);font-size:14px;margin-top:10px;}
   .field{margin-top:20px;}
-  .field label{display:block;font-size:13px;font-weight:600;margin-bottom:7px;}
+  .field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px;}
   .field .hint{font-weight:400;color:var(--ink-soft);font-size:12px;}
   .field input[type=text], .field input[type=email], .field input[type=tel], .field textarea{
-    width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:8px;
-    font-family:'Inter',sans-serif;font-size:15px;background:#12151A;color:var(--ink);
+    width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:7px;
+    font-family:'Work Sans',sans-serif;font-size:15px;background:var(--bg);color:var(--ink);
     color-scheme:dark;
   }
-  .field input::placeholder, .field textarea::placeholder{color:#5C6675;}
+  .field input::placeholder, .field textarea::placeholder{color:#635D54;}
   .field input:focus, .field textarea:focus{border-color:var(--accent);}
   .field textarea{resize:vertical;min-height:100px;}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
   @media (max-width:520px){.row2{grid-template-columns:1fr;}}
 
   .dropzone{
-    border:1.5px dashed var(--line);border-radius:10px;padding:26px;text-align:center;cursor:pointer;
+    border:2px dashed var(--line);border-radius:7px;padding:26px;text-align:center;cursor:pointer;
     background:var(--bg);transition:border-color .15s ease, background .15s ease;
   }
-  .dropzone:hover, .dropzone.drag{border-color:var(--accent);background:rgba(76,141,255,0.06);box-shadow:0 0 20px rgba(76,141,255,0.15);}
-  .dropzone .fname{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);margin-top:8px;word-break:break-all;}
+  .dropzone:hover, .dropzone.drag{border-color:var(--accent);background:rgba(255,91,31,0.06);}
+  .dropzone .fname{font-size:13px;color:var(--accent);margin-top:8px;word-break:break-all;font-weight:600;}
   .dropzone p{margin:0;color:var(--ink-soft);font-size:14px;}
-  .dropzone .browse{color:var(--accent);font-weight:600;}
+  .dropzone .browse{color:var(--accent);font-weight:700;}
 
   .submit-row{margin-top:28px;}
-  .submit-row .btn{width:100%;}
-  .msg{font-size:13px;margin-top:10px;}
-  .msg.error{color:#FF7A7A;}
+  .msg{font-size:13px;margin-top:10px;font-weight:600;}
+  .msg.error{color:var(--error);}
   .msg.ok{color:var(--accent-2);}
 
-  .success{
-    display:none;text-align:center;padding:20px 0;
+  .success{display:none;text-align:center;padding:20px 0;}
+  .success h2{font-size:26px;}
+  .success p{color:var(--ink-soft);font-size:14px;margin-top:10px;}
+  .success-badge{
+    width:56px;height:56px;border-radius:50%;background:var(--accent-2);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 18px;
   }
-  .success .signal{margin:8px 0 22px;}
-  .success h2{font-size:22px;}
-  .success p{color:var(--ink-soft);font-size:14px;margin-top:8px;}
 
-  footer{max-width:1200px;margin:0 auto;padding:30px 6vw 60px;color:var(--ink-soft);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  footer{max-width:1100px;margin:0 auto;padding:30px 6vw 60px;color:var(--ink-soft);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 
-  /* modal */
-  .overlay{
-    position:fixed;inset:0;background:rgba(16,21,26,0.5);display:none;align-items:flex-start;justify-content:center;
-    padding:60px 20px;z-index:50;overflow-y:auto;
+  /* boot overlay */
+  .boot-overlay{
+    position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;
+    background:var(--bg);
   }
-  .overlay.open{display:flex;}
-  .modal{background:var(--surface);border-radius:var(--radius);max-width:720px;width:100%;padding:34px;position:relative;}
-  .modal.wide{max-width:960px;}
-  .modal .close{position:absolute;top:18px;right:18px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--ink-soft);}
-  .modal h2{font-size:20px;margin-bottom:4px;}
-  .modal .sub{color:var(--ink-soft);font-size:13px;margin-bottom:20px;}
-
-  .app-row{
-    border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:12px;
+  .boot-state{text-align:center;max-width:360px;padding:0 24px;}
+  .boot-state h2{font-size:19px;margin-top:16px;font-family:'Work Sans',sans-serif;font-weight:700;text-transform:none;}
+  .boot-state p{color:var(--ink-soft);font-size:14px;margin-top:10px;line-height:1.5;}
+  .boot-spinner{
+    width:34px;height:34px;border-radius:50%;margin:0 auto 16px;
+    border:3px solid rgba(255,91,31,0.25);border-top-color:var(--accent);
+    animation:spin 0.8s linear infinite;
   }
-  .app-row .top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:center;}
-  .app-row .name{font-weight:600;font-size:15px;}
-  .app-row .date{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft);}
-  .app-row .meta{font-size:13px;color:var(--ink-soft);margin-top:6px;}
-  .app-row .notes{font-size:13px;margin-top:10px;line-height:1.5;background:var(--bg);padding:10px 12px;border-radius:8px;}
-  .app-row .actions{margin-top:10px;display:flex;gap:10px;}
-  .app-row .actions a, .app-row .actions button{
-    font-size:12px;font-family:'JetBrains Mono',monospace;text-decoration:none;color:var(--accent);
-    background:none;border:1px solid var(--line);padding:6px 10px;border-radius:100px;cursor:pointer;
-  }
-  .app-row .actions button.danger{color:#FF7A7A;}
-  .empty-state{text-align:center;color:var(--ink-soft);font-size:14px;padding:40px 0;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @media (prefers-reduced-motion: reduce){.boot-spinner{animation:none;}}
+  #companyNameSlot{font-size:15px;color:var(--ink);}
 </style>
 </head>
-<body style="background-color:#14171C; background:#14171C; color:#F2F5F8;">
-<div class="bg-fiber" aria-hidden="true">
-  <svg viewBox="-200 -550 2000 1700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="fiberGradBg" x1="0%" y1="100%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#2F5FCB"/>
-        <stop offset="100%" stop-color="#8FD3FF"/>
-      </linearGradient>
-      <filter id="bgLineGlow" x="-100%" y="-100%" width="300%" height="300%">
-        <feGaussianBlur stdDeviation="6" result="b"/>
-        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>
-      <filter id="bgDotGlow" x="-300%" y="-300%" width="700%" height="700%">
-        <feGaussianBlur stdDeviation="9" result="b"/>
-        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>
-    </defs>
-    <g filter="url(#bgLineGlow)">
-        <path d="M-120.0,1080.0 C225.1,616.5 487.2,39.4 846.4,-466.6" stroke="url(#fiberGradBg)" stroke-width="6.62" fill="none" opacity="0.71" stroke-linecap="round"/>
-        <path d="M-120.0,1080.0 C153.8,681.1 480.7,236.5 812.6,-152.6" stroke="url(#fiberGradBg)" stroke-width="4.62" fill="none" opacity="0.53" stroke-linecap="round"/>
-        <path d="M-120.0,1080.0 C249.7,666.7 707.1,182.6 1055.0,-214.8" stroke="url(#fiberGradBg)" stroke-width="4.79" fill="none" opacity="0.81" stroke-linecap="round"/>
-        <path d="M-120.0,1080.0 C294.1,719.6 789.6,277.2 1134.6,-76.3" stroke="url(#fiberGradBg)" stroke-width="8.3" fill="none" opacity="0.65" stroke-linecap="round"/>
-        <path d="M-120.0,1080.0 C324.2,733.5 746.8,372.2 1227.9,43.7" stroke="url(#fiberGradBg)" stroke-width="8.09" fill="none" opacity="0.74" stroke-linecap="round"/>
-        <path d="M-120.0,1080.0 C338.8,770.2 792.1,454.5 1278.0,191.3" stroke="url(#fiberGradBg)" stroke-width="8.58" fill="none" opacity="0.58" stroke-linecap="round"/>
-        <path d="M-120.0,1080.0 C285.7,816.8 783.4,607.9 1248.1,372.9" stroke="url(#fiberGradBg)" stroke-width="8.6" fill="none" opacity="0.63" stroke-linecap="round"/>
-        <path d="M-120.0,1080.0 C345.8,867.2 939.0,666.8 1388.4,463.8" stroke="url(#fiberGradBg)" stroke-width="5.79" fill="none" opacity="0.54" stroke-linecap="round"/>
-        <path d="M-120.0,1080.0 C439.2,939.2 1001.7,730.5 1575.8,557.9" stroke="url(#fiberGradBg)" stroke-width="9.09" fill="none" opacity="0.74" stroke-linecap="round"/>
-        <path d="M-120.0,1080.0 C426.5,996.2 1044.5,811.1 1670.9,699.3" stroke="url(#fiberGradBg)" stroke-width="4.62" fill="none" opacity="0.82" stroke-linecap="round"/>
-    </g>
-    <g filter="url(#bgDotGlow)">
-        <circle class="bgspark" cx="846.4" cy="-466.6" r="9.44" fill="#FFFFFF" style="animation-delay:3.89s; animation-duration:5.51s;"/>
-        <circle class="bgspark" cx="812.6" cy="-152.6" r="8.69" fill="#CBEBFF" style="animation-delay:3.95s; animation-duration:5.37s;"/>
-        <circle class="bgspark" cx="1055.0" cy="-214.8" r="6.08" fill="#FFFFFF" style="animation-delay:3.15s; animation-duration:4.73s;"/>
-        <circle class="bgspark" cx="1134.6" cy="-76.3" r="6.38" fill="#CBEBFF" style="animation-delay:1.86s; animation-duration:3.99s;"/>
-        <circle class="bgspark" cx="1227.9" cy="43.7" r="10.75" fill="#8FD3FF" style="animation-delay:0.86s; animation-duration:3.76s;"/>
-        <circle class="bgspark" cx="1278.0" cy="191.3" r="9.25" fill="#FFFFFF" style="animation-delay:2.76s; animation-duration:4.89s;"/>
-        <circle class="bgspark" cx="1248.1" cy="372.9" r="7.27" fill="#CBEBFF" style="animation-delay:1.69s; animation-duration:5.75s;"/>
-        <circle class="bgspark" cx="1388.4" cy="463.8" r="9.81" fill="#FFFFFF" style="animation-delay:2.63s; animation-duration:4.54s;"/>
-        <circle class="bgspark" cx="1575.8" cy="557.9" r="10.48" fill="#8FD3FF" style="animation-delay:2.75s; animation-duration:4.53s;"/>
-        <circle class="bgspark" cx="1670.9" cy="699.3" r="10.8" fill="#8FD3FF" style="animation-delay:3.59s; animation-duration:5.36s;"/>
-    </g>
-  </svg>
-</div>
-<div class="page">
+<body style="background-color:#17181A; background:#17181A; color:#F5F3EE;">
 
+<div id="bootOverlay" class="boot-overlay">
+  <div id="bootLoading" class="boot-state">
+    <div class="boot-spinner" aria-hidden="true"></div>
+    <p>Loading…</p>
+  </div>
+  <div id="bootError" class="boot-state" style="display:none;">
+    <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L1 21h22L12 2z" fill="none" stroke="var(--error)" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 9v5" stroke="var(--error)" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="17" r="1" fill="var(--error)"/></svg>
+    <h2>Recruiting page not found</h2>
+    <p id="bootErrorMsg">This link isn't set up yet. Please check the URL or contact whoever shared it with you.</p>
+  </div>
+</div>
+
+<div class="page" id="pageContent" style="display:none;">
 
 <header>
   <div class="brand">
-    <svg class="wifi-logo" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
-      <circle cx="12" cy="19" r="1.6" fill="#8FD3FF"/>
-      <path d="M7 15.2a7 7 0 0 1 10 0" stroke="#4C8DFF" stroke-width="2" fill="none" stroke-linecap="round"/>
-      <path d="M3.5 11.2a12 12 0 0 1 17 0" stroke="#4C8DFF" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.75"/>
-      <path d="M0.5 7.4a16.5 16.5 0 0 1 23 0" stroke="#4C8DFF" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.45"/>
-    </svg>
+    <div class="brand-badge">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="19" r="1.7" fill="#fff"/>
+        <path d="M7 15.2a7 7 0 0 1 10 0" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <path d="M3.5 11.2a12 12 0 0 1 17 0" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.8"/>
+      </svg>
+    </div>
+    <span id="companyNameSlot"></span>
   </div>
+  <a class="apply-link" href="#apply" onclick="document.getElementById('apply').scrollIntoView();return false;">Apply now</a>
 </header>
 
 <section class="hero">
-  <div class="eyebrow"><span class="dot"></span> FIBER OPTIC SALES</div>
-  <h1>Sell the fastest connection on the block.</h1>
-  <p>We're hiring door-to-door reps to bring fiber wifi to new neighborhoods. Uncapped commission, your own territory, and a start date within days — not weeks.</p>
-  <div class="cta-row">
-    <button class="btn" onclick="document.getElementById('apply').scrollIntoView()">Apply now</button>
+  <div class="hero-solo">
+    <h1 class="hero-headline">THE BLOCK IS YOUR OFFICE. <span class="accent">THE COMMISSION HAS NO CEILING.</span></h1>
+    <p class="hero-sub">We're putting reps on doors selling fiber internet across new neighborhoods. Your route, your hours, your close — training included, no experience required.</p>
+    <div class="cta-row">
+      <button class="btn" onclick="document.getElementById('apply').scrollIntoView()">Apply now</button>
+      <span class="hero-tag">Takes about two minutes</span>
+    </div>
   </div>
-  <div class="signal" aria-hidden="true"></div>
 </section>
 
+<!-- Video section removed for now. To bring it back, restore the hero-grid markup
+     (see conversation history / git history) and the matching CSS/JS are still
+     below, guarded so they won't error without the video elements present. -->
+
+<div class="statement">
+  <p>No desk. No cubicle. Just you, the block, and your next close.</p>
+</div>
+
 <section class="steps" id="how">
-  <div class="steps-head">
-    <h2 style="font-size:26px;">How it works</h2>
-    <span class="mono" style="font-size:12px;color:var(--ink-soft);">FOUR STEPS · NO EXPERIENCE REQUIRED</span>
-  </div>
+  <h2>How it works</h2>
   <div class="steps-grid">
     <div class="step"><div class="num">01</div><h3>Apply</h3><p>Send your name, number, and resume. Takes about two minutes.</p></div>
     <div class="step"><div class="num">02</div><h3>Interview</h3><p>A quick call to begin your onboarding process.</p></div>
@@ -326,16 +300,17 @@
           <textarea id="notes" name="notes" placeholder="Anything you want us to know before the call."></textarea>
         </div>
         <div class="submit-row">
-          <button type="submit" class="btn" id="submitBtn">Submit application</button>
+          <button type="submit" class="btn btn-full" id="submitBtn">Submit application</button>
           <div class="msg" id="formMsg"></div>
         </div>
       </form>
     </div>
 
     <div class="success" id="successWrap">
-      <div class="eyebrow" style="justify-content:center;"><span class="dot"></span> SIGNAL SENT</div>
-      <div class="signal"></div>
-      <h2>Application received.</h2>
+      <div class="success-badge">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#1A1000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h2>Application received</h2>
       <p id="successName"></p>
       <p>We'll reach out by phone or email to schedule a quick call.</p>
     </div>
@@ -343,14 +318,55 @@
 </section>
 
 <footer>
-  <span></span>
-  <span class="mono">STATUS: HIRING</span>
+  <span id="footerCompanyName"></span>
+  <span>Status: Hiring</span>
 </footer>
 
 <script>
 const $ = (id) => document.getElementById(id);
 
+/* ---------- Org config (single-org for now) ---------- */
+const SUPABASE_URL = 'https://opfvfrfpzgzshnbsdlxz.supabase.co';
+const SUPABASE_API_KEY = 'sb_publishable_QZiI02bl8Og81yKIT-BGKg_1wllb4HP';
+const SUBMIT_SECRET = 'UNWIRED291610HDKI';
+const MANAGER_ID = 'c20a35d9-ea76-4b2b-a508-581b0e78a0a1';
+
+$('bootOverlay').style.display = 'none';
+$('pageContent').style.display = '';
+
 /* ---------- Applicant form ---------- */
+/* ---------- Pitch video (no-op if the video markup isn't on the page) ---------- */
+const pitchVideo = $('pitchVideo');
+const videoPlayBtn = $('videoPlayBtn');
+const videoProgress = $('videoProgress');
+const videoTime = $('videoTime');
+
+function formatTime(sec){
+  if(!isFinite(sec)) return '0:00';
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60).toString().padStart(2, '0');
+  return m + ':' + s;
+}
+
+if(pitchVideo && videoPlayBtn && videoProgress && videoTime){
+  videoPlayBtn.addEventListener('click', () => {
+    pitchVideo.play();
+    videoPlayBtn.classList.add('hidden');
+  });
+  pitchVideo.addEventListener('pause', () => videoPlayBtn.classList.remove('hidden'));
+  pitchVideo.addEventListener('ended', () => videoPlayBtn.classList.remove('hidden'));
+  pitchVideo.addEventListener('click', () => {
+    if(pitchVideo.paused){ pitchVideo.play(); videoPlayBtn.classList.add('hidden'); }
+    else { pitchVideo.pause(); }
+  });
+  pitchVideo.addEventListener('timeupdate', () => {
+    if(pitchVideo.duration){
+      videoProgress.style.width = (pitchVideo.currentTime / pitchVideo.duration * 100) + '%';
+    }
+    videoTime.textContent = formatTime(pitchVideo.currentTime);
+  });
+}
+
 let resumeFile = null;
 
 $('dropzone').addEventListener('click', () => $('resumeInput').click());
@@ -406,16 +422,18 @@ $('appForm').addEventListener('submit', async (e) => {
     msg.className = 'msg error';
     return;
   }
+  if(!MANAGER_ID){
+    msg.textContent = 'This recruiting page is not configured correctly. Please contact whoever shared this link.';
+    msg.className = 'msg error';
+    return;
+  }
 
   msg.textContent = '';
   $('submitBtn').disabled = true;
   $('submitBtn').textContent = 'Sending…';
 
   // Field manager app endpoint — direct integration, no third-party form relay needed.
-  const FIELD_MANAGER_ENDPOINT = 'https://opfvfrfpzgzshnbsdlxz.supabase.co/functions/v1/dynamic-service';
-  const SUPABASE_API_KEY = 'sb_publishable_QZiI02bl8Og81yKIT-BGKg_1wllb4HP';
-  const SUBMIT_SECRET = 'UNWIRED291610HDKI';
-  const MANAGER_ID = 'c20a35d9-ea76-4b2b-a508-581b0e78a0a1';
+  const FIELD_MANAGER_ENDPOINT = SUPABASE_URL + '/functions/v1/dynamic-service';
 
   try{
     const formData = new FormData();
