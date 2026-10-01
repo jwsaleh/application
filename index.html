@@ -288,7 +288,7 @@
           </div>
         </div>
         <div class="field">
-          <label for="resumeInput">Resume (PDF) *</label>
+          <label for="resumeInput">Resume (PDF) <span class="hint">(Optional but encouraged)</span></label>
           <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Upload resume PDF">
             <p><span class="browse">Click to upload</span> or drag a PDF here</p>
             <div class="fname" id="fname"></div>
@@ -417,11 +417,6 @@ $('appForm').addEventListener('submit', async (e) => {
     msg.className = 'msg error';
     return;
   }
-  if(!resumeFile){
-    msg.textContent = 'Please attach a resume PDF.';
-    msg.className = 'msg error';
-    return;
-  }
   if(!MANAGER_ID){
     msg.textContent = 'This recruiting page is not configured correctly. Please contact whoever shared this link.';
     msg.className = 'msg error';
@@ -445,7 +440,9 @@ $('appForm').addEventListener('submit', async (e) => {
     formData.append('state', state);
     formData.append('notes', notes);
     formData.append('manager_id', MANAGER_ID);
-    formData.append('resume', resumeFile); // real file attachment
+    if(resumeFile){
+      formData.append('resume', resumeFile); // real file attachment, only if provided
+    }
 
     const res = await fetch(FIELD_MANAGER_ENDPOINT, {
       method: 'POST',
